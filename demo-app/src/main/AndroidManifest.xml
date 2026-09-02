@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application
+        android:allowBackup="true"
+        android:label="ModernIPC Demo"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+
+        <!-- Client UI runs in main process -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Server Service runs in isolated :server process -->
+        <service
+            android:name=".MyBrokerService"
+            android:exported="false"
+            android:process=":server" />
+
+    </application>
+</manifest>

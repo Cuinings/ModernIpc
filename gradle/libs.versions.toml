@@ -1,0 +1,71 @@
+# ============================================================
+# Gradle Version Catalog — 所有版本、库、插件的唯一来源
+# 升级依赖只需修改此文件中对应的 version 值
+# ============================================================
+
+[versions]
+# Android Gradle Plugin
+agp             = "8.2.0"
+# Kotlin（kotlin-android / kotlin-jvm / kotlin-parcelize 共享同一版本）
+kotlin          = "1.9.22"
+# KSP（必须与 Kotlin 版本严格对齐，格式：<kotlin>-<ksp>）
+ksp             = "1.9.22-1.0.17"
+# AndroidX
+coreKtx         = "1.12.0"
+appcompat       = "1.6.1"
+constraintlayout = "2.1.4"
+# Kotlin Coroutines
+coroutines      = "1.7.3"
+# Material
+material        = "1.10.0"
+# KotlinPoet
+kotlinpoet      = "1.15.3"
+# Android SDK 版本（约定插件中读取，统一维护）
+compileSdk      = "34"
+minSdk          = "21"
+targetSdk       = "34"
+# JVM 字节码目标版本
+jvmTarget       = "1.8"
+
+# ============================================================
+[libraries]
+# ============================================================
+
+# AndroidX
+androidx-core-ktx       = { group = "androidx.core",         name = "core-ktx",                version.ref = "coreKtx" }
+androidx-appcompat      = { group = "androidx.appcompat",    name = "appcompat",               version.ref = "appcompat" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout",  version.ref = "constraintlayout" }
+
+# Kotlin Coroutines
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+
+# KSP Symbol Processing API（ipc-compiler 使用）
+ksp-api                 = { group = "com.google.devtools.ksp", name = "symbol-processing-api",  version.ref = "ksp" }
+
+# KotlinPoet
+kotlinpoet              = { group = "com.squareup",          name = "kotlinpoet",              version.ref = "kotlinpoet" }
+kotlinpoet-ksp          = { group = "com.squareup",          name = "kotlinpoet-ksp",          version.ref = "kotlinpoet" }
+
+# Material
+material                = { group = "com.google.android.material", name = "material",          version.ref = "material" }
+
+# Build Logic Dependencies
+android-gradlePlugin    = { group = "com.android.tools.build", name = "gradle",                version.ref = "agp" }
+kotlin-gradlePlugin     = { group = "org.jetbrains.kotlin",  name = "kotlin-gradle-plugin",    version.ref = "kotlin" }
+
+# ============================================================
+[plugins]
+# ============================================================
+
+# Android
+android-application = { id = "com.android.application",                  version.ref = "agp" }
+android-library  = { id = "com.android.library",                     version.ref = "agp" }
+
+# Kotlin
+kotlin-android   = { id = "org.jetbrains.kotlin.android",            version.ref = "kotlin" }
+kotlin-jvm       = { id = "org.jetbrains.kotlin.jvm",                version.ref = "kotlin" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize",   version.ref = "kotlin" }
+
+# KSP
+ksp              = { id = "com.google.devtools.ksp",                  version.ref = "ksp" }
